@@ -9,7 +9,7 @@ public class BoxControl : MonoBehaviour
     [Header("Check hitted by player")]
     [SerializeField] private Transform whereIsHitted;
     [SerializeField] private LayerMask player;
-    [SerializeField] private Vector2 boxSize;
+    [SerializeField] private Vector2 boxSize = new(1.24f, 0.2f);
 
     private void Awake()
     {
@@ -28,9 +28,9 @@ public class BoxControl : MonoBehaviour
 
         hp--;
         anima.SetBool("isHitted", true);
-        Invoke(nameof(SetIsHitted), 0.3f);
+        Invoke(nameof(SetIsHitted), 0.2f);
         if (hp == 0)
-            Invoke(nameof(IsBreak), 0.3f);
+            Invoke(nameof(IsBreak), 0.2f);
     }
 
     private void IsBreak()

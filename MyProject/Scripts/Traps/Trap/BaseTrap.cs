@@ -6,6 +6,9 @@ public class BaseTrap : MonoBehaviour
 {
     protected virtual void OnTriggerStay2D(Collider2D collision)
     {
-        HPPlayer.Instance.DeductHP();
+        if (collision.GetComponent<PlayerControl>() != null)
+        {
+            HPPlayer.Instance.DeductHP();
+        }
     }
 }

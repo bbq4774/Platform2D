@@ -5,18 +5,40 @@ using UnityEngine;
 public class EnemyAttack : EnemyMove
 {
     [Header("Check Attack")]
+    [SerializeField] protected LayerMask player;
     [SerializeField] private bool isAttack;
     [SerializeField] private float disCheckAttack;
+
+    private float countTime = 0f;
+    private readonly float timeAttack = 2f;
+    private bool canAttack = false;
 
     protected override void Update()
     {
         CheckAttack();
+        CheckSendDam();
         base.Update();
+    }
+
+    private void CheckSendDam()
+    {
+        countTime += Time.deltaTime;
+        if (countTime >= timeAttack)
+        {
+            canAttack = true;
+        }
     }
 
     private void CheckAttack()
     {
         isAttack = Physics2D.Raycast(transform.position, Vector2.right, disCheckAttack, player);
+
+        if (isAttack && canAttack)
+        {
+            countTime = 0f;
+            canAttack = false;
+            HPPlayer.Instance.DeductHP();
+        }
     }
 
     protected override void Animation()
@@ -40,16 +62,9 @@ public class EnemyAttack : EnemyMove
         }
     }
 
-    protected override void OnDrawGizmos()
+    protected virtual void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position, new(transform.position.x + disCheckAttack,
                                                 transform.position.y));
-        base.OnDrawGizmos();
-    }
-
-    protected override void OnTriggerStay2D(Collider2D collision)
-    {
-        if (!isAttack) return;
-        base.OnTriggerStay2D(collision);
     }
 }

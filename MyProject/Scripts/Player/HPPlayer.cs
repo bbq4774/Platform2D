@@ -9,14 +9,12 @@ public class HPPlayer : MonoBehaviour
     public static HPPlayer Instance => instance;
 
     [SerializeField] private int maxHP = 3;
-    public int MaxHP => maxHP;
     [SerializeField] private int hp = 3;
-    public int HP => hp;
     private bool isDie;
     public bool IsDie => isDie;
 
     [Header("Invisible Info")]
-    [SerializeField] private float timeInvisible = 2f;
+    [SerializeField] private float timeInvisible = 1f;
     [SerializeField] private float countTime = 0;
 
     private void Awake()

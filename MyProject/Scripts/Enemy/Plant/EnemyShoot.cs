@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyShoot : MonoBehaviour
 {
     [Header("Info shoot")]
-    [SerializeField] private float timeShootDelay = 1f;
+    [SerializeField] private float timeShootDelay = 1.5f;
     [SerializeField] private float countTime = 0f;
     [SerializeField] private Transform pointShoot;
     [SerializeField] private Transform bullet;

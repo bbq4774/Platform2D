@@ -8,6 +8,8 @@ public class Falling : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 firtPosition;
 
+    [SerializeField] private float timeFalling = 1f;
+
     private void Awake()
     {
         anima = GetComponent<Animator>();
@@ -18,16 +20,22 @@ public class Falling : MonoBehaviour
     {
         firtPosition = transform.position;
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Invoke(nameof(FallingDown), 1f);
+        Invoke(nameof(FallingDown), timeFalling);
     }
 
     private void FallingDown()
     {
         anima.SetTrigger("off");
+
+        //Set falling
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 3;
+        BoxCollider2D box = GetComponent<BoxCollider2D>();
+        box.enabled = false;
+
         Invoke(nameof(DisableObj), 2f);
     }
 
@@ -35,6 +43,8 @@ public class Falling : MonoBehaviour
     {
         rb.bodyType = RigidbodyType2D.Static;
         transform.position = firtPosition;
+        BoxCollider2D box = GetComponent<BoxCollider2D>();
+        box.enabled = true;
         transform.gameObject.SetActive(true);
     }
 

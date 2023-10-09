@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 579653046015983304}
   - component: {fileID: 579653046015983305}
   - component: {fileID: 579653046015983307}
+  - component: {fileID: 629741358}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -94,7 +95,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579653046015983314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -167,7 +168,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.002070427, y: -0.21898693}
+  m_Offset: {x: -0.09930563, y: -0.39529228}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -178,7 +179,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0854282, y: 1.9370261}
+  m_Size: {x: 1.0892992, y: 1.5844154}
   m_EdgeRadius: 0
 --- !u!50 &579653046015983304
 Rigidbody2D:
@@ -238,13 +239,28 @@ MonoBehaviour:
   - {fileID: 579653045788774541}
   - {fileID: 579653046457871906}
   speed: 5
+  player:
+    serializedVersion: 2
+    m_Bits: 64
+  isAttack: 0
+  disCheckAttack: -2
+--- !u!114 &629741358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579653046015983314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0533ce752d84b9546914826e1c4e2612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   whereIsHitted: {fileID: 579653046507398570}
   player:
     serializedVersion: 2
     m_Bits: 64
-  boxSize: {x: 2.23, y: 0.31}
-  isAttack: 0
-  disCheckAttack: -2
+  boxSize: {x: 2.6, y: 0.3}
 --- !u!1 &579653046457871907
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579653046507398571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.762, z: 0}
+  m_LocalPosition: {x: 0, y: 0.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

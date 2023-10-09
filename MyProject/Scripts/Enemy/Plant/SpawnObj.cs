@@ -17,6 +17,11 @@ public class SpawnObj : MonoBehaviour
 
     private void Reset()
     {
+        LoadHolder();
+    }
+
+    private void LoadHolder()
+    {
         if (holder != null) return;
         holder = transform.Find("Holder");
     }
